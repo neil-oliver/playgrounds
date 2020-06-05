@@ -1,0 +1,12 @@
+body{
+    box-sizing: border-box;
+    border:0;
+    margin:0;
+}
+
+.floating-buttons{
+    position: absolute;
+    float: left;
+    left:50px;
+    top:50px;
+}
