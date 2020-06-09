@@ -13,11 +13,19 @@ function setup(){
 }
 
 function mouseMoved() {
+    addNew()
+}
+
+function mouseDragged() {
+    addNew()
+}
+
+function addNew(){
     let r = random(10, 50);
     let b = new Bubble(mouseX, mouseY, r);
     bubbles.push(b);
     loop()
-  }
+}
 
 
 function draw(){
