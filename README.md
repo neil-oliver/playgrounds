@@ -6,4 +6,6 @@ P5 Patterns [View](https://neil-oliver.github.io/playgrounds/patterns/)
 PI Pattern [View](https://neil-oliver.github.io/playgrounds/pi_pattern/)  
 Intro Waves [View](https://neil-oliver.github.io/playgrounds/intro_waves/)  
 Animated Waves [View](https://neil-oliver.github.io/playgrounds/animated_waves/)  
-3D Images [View](https://neil-oliver.github.io/playgrounds/3d_images/)    
+3D Images [View](https://neil-oliver.github.io/playgrounds/3d_images/)  
+Particles [View](https://neil-oliver.github.io/playgrounds/particles/)    
+

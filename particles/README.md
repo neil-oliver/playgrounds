@@ -1,0 +1,2 @@
+# Particles
+A pure P5 impementation of [this](https://codepen.io/soulwire/pen/foktm) idea using [this](https://github.com/CodingTrain/website/tree/master/beginners/p5js/7.3_array_of_objects) tutorial as a starting point.
