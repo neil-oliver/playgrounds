@@ -9,12 +9,14 @@ function setup(){
     let canvas = createCanvas(window.innerWidth,window.innerHeight)
     canvas.parent('vis')
     angleMode(DEGREES)
+    noLoop()
 }
 
 function mouseMoved() {
     let r = random(10, 50);
     let b = new Bubble(mouseX, mouseY, r);
     bubbles.push(b);
+    loop()
   }
 
 
@@ -30,6 +32,10 @@ function draw(){
         } else {
             bubbles.splice(i, 1);
         }
+    }
+
+    if(bubbles.length == 0){
+        noLoop()
     }
 }
 
