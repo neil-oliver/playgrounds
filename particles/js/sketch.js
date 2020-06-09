@@ -8,9 +8,10 @@ function setup(){
     frameRate(60)
     let canvas = createCanvas(window.innerWidth,window.innerHeight)
     canvas.parent('vis')
+    angleMode(DEGREES)
 }
 
-function mouseDragged() {
+function mouseMoved() {
     let r = random(10, 50);
     let b = new Bubble(mouseX, mouseY, r);
     bubbles.push(b);
@@ -36,25 +37,35 @@ class Bubble{
     constructor(x,y){
         this.x = x;
         this.y = y;
-        this.size = 20;
-        this.color = Math.random()
-        this.reduceAmount = Math.random() > 0.5 ? 0.2 : 0.1
+        this.size = random(50,100);
+        this.color = Math.random();
+        this.reduceAmount = random(0.08 , 0.02)
+        this.moveX = random(-1,1);
+        this.moveY = random(-1,1);
+        this.speed = random(5,10);
+        this.age = 0;
+
     }
 
     move() {
-        this.x = this.x + random(-5, 5);
-        this.y = this.y + random(-5, 5);
+        this.x = this.x + (this.moveX*this.speed);
+        this.y = this.y + (this.moveY*this.speed);
+        
+        //shift the direction slightly so they dont move in a straight line
+        this.moveX = this.moveX + random(-0.1, 0.1)
+        this.moveY = this.moveY + random(-0.1, 0.1)
     }
 
     reduce(){
-        this.size = this.size - this.reduceAmount
+        this.size = this.size * (1 - this.reduceAmount)
     }
 
     show(){
         let colorScale  = chroma.scale('Spectral').mode('lch');
         noStroke()
-        fill(colorScale(this.color).hex())
+        fill(this.age < 1 ? "#ffffff" : colorScale(this.color).hex()) // add a flash of white as new bubbles are created.
         circle(this.x, this.y, this.size)
+        this.age += 1
     }
 
 }
