@@ -13,17 +13,20 @@ function setup(){
 }
 
 function mouseMoved() {
-    addNew()
+    addNew(2)
 }
 
 function mouseDragged() {
-    addNew()
+    addNew(2)
 }
 
-function addNew(){
-    let r = random(10, 50);
-    let b = new Bubble(mouseX, mouseY, r);
-    bubbles.push(b);
+function addNew(amount){
+    amount = amount || 1
+    for (let i =0; i<amount;i++){
+        let r = random(10, 50);
+        let b = new Bubble(mouseX, mouseY, r);
+        bubbles.push(b);
+    }
     loop()
 }
 
@@ -53,10 +56,10 @@ class Bubble{
         this.y = y;
         this.size = random(50,100);
         this.color = Math.random();
-        this.reduceAmount = random(0.08 , 0.02)
+        this.reduceAmount = random(0.06 , 0.03)
         this.moveX = random(-1,1);
         this.moveY = random(-1,1);
-        this.speed = random(5,10);
+        this.speed = random(1,5);
         this.age = 0;
 
     }
@@ -66,12 +69,12 @@ class Bubble{
         this.y = this.y + (this.moveY*this.speed);
         
         //shift the direction slightly so they dont move in a straight line
-        this.moveX = this.moveX + random(-0.1, 0.1)
-        this.moveY = this.moveY + random(-0.1, 0.1)
+        this.moveX = this.moveX + random(-0.2, 0.2)
+        this.moveY = this.moveY + random(-0.2, 0.2)
     }
 
     reduce(){
-        this.size = this.size * (1 - this.reduceAmount)
+        this.size = this.size > 1 ? this.size * (1 - this.reduceAmount) : 0
     }
 
     show(){
